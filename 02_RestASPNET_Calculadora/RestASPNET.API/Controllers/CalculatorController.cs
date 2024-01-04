@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 using System;
 
 namespace RestASPNET.API.Controllers
@@ -18,7 +17,7 @@ namespace RestASPNET.API.Controllers
         }
 
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult Get(string firstNumber, string secondNumber)
+        public IActionResult Sum(string firstNumber, string secondNumber)
         {
             double referenciaVazia = 0;
 
@@ -27,6 +26,55 @@ namespace RestASPNET.API.Controllers
                 )
             {
                 var sum = Convert.ToDecimal(firstNumber) + Convert.ToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Input Invalid");
+        }
+
+        [HttpGet("multiplication/{firstNumber}/{secondNumber}")]
+        public IActionResult Multiplication(string firstNumber, string secondNumber)
+        {
+            double referenciaVazia = 0;
+
+            if (Double.TryParse(firstNumber, out referenciaVazia)
+                    && Double.TryParse(secondNumber, out referenciaVazia)
+                )
+            {
+                var sum = Convert.ToDecimal(firstNumber) * Convert.ToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Input Invalid");
+        }
+
+
+        [HttpGet("subtraction/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtraction(string firstNumber, string secondNumber)
+        {
+            double referenciaVazia = 0;
+
+            if (Double.TryParse(firstNumber, out referenciaVazia)
+                    && Double.TryParse(secondNumber, out referenciaVazia)
+                )
+            {
+                var sum = Convert.ToDecimal(firstNumber) - Convert.ToDecimal(secondNumber);
+                return Ok(sum.ToString());
+            }
+
+            return BadRequest("Input Invalid");
+        }
+
+        [HttpGet("Mean/{firstNumber}/{secondNumber}")]
+        public IActionResult Mean(string firstNumber, string secondNumber)
+        {
+            double referenciaVazia = 0;
+
+            if (Double.TryParse(firstNumber, out referenciaVazia)
+                    && Double.TryParse(secondNumber, out referenciaVazia)
+                )
+            {
+                var sum = (Convert.ToDecimal(firstNumber) + Convert.ToDecimal(secondNumber)) / 2;
                 return Ok(sum.ToString());
             }
 
