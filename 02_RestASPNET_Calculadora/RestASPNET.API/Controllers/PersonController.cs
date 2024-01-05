@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestASPNET.API.Model;
 using RestASPNET.API.Services;
@@ -8,6 +9,7 @@ namespace RestASPNET.API.Controllers
     [ApiVersion("1")]
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;

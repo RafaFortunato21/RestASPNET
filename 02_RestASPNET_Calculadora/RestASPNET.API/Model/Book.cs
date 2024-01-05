@@ -1,4 +1,6 @@
-﻿namespace RestASPNET.API.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RestASPNET.API.Model
 {
     public class Book
     {
